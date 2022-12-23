@@ -8,14 +8,12 @@ module make_single_lip_through_hole(lip_diameter, lip_height, body_diameter) {
 
     cylinder(d=body_diameter, h=through_all_height, center=true);
     assert(defined(lip_height));
-    echo(lip_height, "lip_height");
     translate([0,0,-lip_height])cylinder(d=lip_diameter, h=through_all_height);      
 };
 
 module alignment_pin_hole(pin) {
     assert(len(pin)>=2);
     lip = pin[0];body = pin[1];
-    echo("lip", lip);
     make_single_lip_through_hole(lip[0], lip[1], body[0]);
 };
 
