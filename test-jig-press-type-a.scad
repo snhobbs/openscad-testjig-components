@@ -2,7 +2,8 @@
     The base plate is square with a width, length, and height.
     There are mounting holes that go through all
 */
-use<../tools.scad>
+use<openscad-utilities/abstract-types.scad>
+use<openscad-utilities/tools.scad>
     
 
 function get_test_jig_plate_size() = [170, 150];
@@ -17,7 +18,6 @@ module support_base_plate_outline() {
     square_with_holes(size=get_test_jig_plate_size(),
     holes=get_support_plate_holes());
 };
-        
 
 
 /* Return the hole pattern for a type A press */
@@ -36,7 +36,3 @@ module press_pressure_plate_type_a_base_outline() {
     holes = get_press_pressure_plate_holes(width=size[0], length=size[1]);
     square_with_holes([size[0], size[1]], holes);
 }
-
-$fn=1000;
-support_base_plate_outline();
-//press_pressure_plate_type_a_base_outline();
